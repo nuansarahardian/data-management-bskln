@@ -9,22 +9,16 @@ class Benua extends Model
 {
     use HasFactory;
 
-    // Nama tabel yang digunakan oleh model
-    protected $table = 'tbbenua'; 
-
-    // Primary key dari tabel
+    protected $table = 'tbbenua';
     protected $primaryKey = 'ID_Benua';
-
-    // Tipe primary key jika bukan incrementing integer
-    public $incrementing = false; // Karena ID_Benua menggunakan string
+    public $incrementing = false;
     protected $keyType = 'string';
-
-    // Jika tabel tidak menggunakan timestamps
     public $timestamps = false;
+    protected $fillable = ['ID_Benua', 'Benua'];
 
-    // Kolom yang bisa diisi
-    protected $fillable = [
-        'ID_Benua',
-        'Benua',
-    ];
+    // Relasi ke model Kawasan
+    public function kawasan()
+    {
+        return $this->hasMany(Kawasan::class, 'ID_Benua', 'ID_Benua');
+    }
 }
