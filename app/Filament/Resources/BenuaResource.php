@@ -19,7 +19,7 @@ class BenuaResource extends Resource
 {
     protected static ?string $model = Benua::class;
 
-    // protected static ?string $navigationIcon = 'heroicon-o-globe';
+    protected static ?string $navigationIcon = 'heroicon-o-globe-americas';
 
     protected static ?string $navigationLabel = 'Benua';
     protected static ?string $pluralLabel = 'Benua';

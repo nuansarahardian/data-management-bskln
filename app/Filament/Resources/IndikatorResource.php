@@ -19,7 +19,7 @@ class IndikatorResource extends Resource
 
     protected static ?string $navigationLabel = 'Indikator';
 
-    protected static ?string $navigationGroup = 'Data Master';
+    protected static ?string $navigationGroup = 'Indikator';
 
     public static function form(Forms\Form $form): Forms\Form
     {

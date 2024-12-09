@@ -16,11 +16,11 @@ class KawasanResource extends Resource
 {
     protected static ?string $model = Kawasan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-map-pin';
 
     protected static ?string $navigationLabel = 'Kawasan';
 
-    protected static ?string $navigationGroup = 'Data Master';
+    protected static ?string $navigationGroup = 'Data Geografis';
 
     public static function form(Forms\Form $form): Forms\Form
     {

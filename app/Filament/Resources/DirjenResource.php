@@ -19,7 +19,7 @@ class DirjenResource extends Resource
 
     protected static ?string $navigationLabel = 'Direktorat Jenderal';
 
-    protected static ?string $navigationGroup = 'Data Master';
+    protected static ?string $navigationGroup = 'Data Geografis';
 
     public static function form(Forms\Form $form): Forms\Form
     {

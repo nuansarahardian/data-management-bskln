@@ -16,11 +16,11 @@ class OrganisasiNegaraResource extends Resource
 {
     protected static ?string $model = OrganisasiNegara::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-flag';
+    // protected static ?string $navigationIcon = 'heroicon-o-flag';
 
     protected static ?string $navigationLabel = 'Organisasi Negara';
 
-    protected static ?string $navigationGroup = 'Data Master';
+    protected static ?string $navigationGroup = 'Organisasi';
 
     public static function form(Forms\Form $form): Forms\Form
     {

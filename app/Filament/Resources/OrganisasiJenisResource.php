@@ -19,7 +19,7 @@ class OrganisasiJenisResource extends Resource
 
     protected static ?string $navigationLabel = 'Organisasi Jenis';
 
-    protected static ?string $navigationGroup = 'Data Master';
+    protected static ?string $navigationGroup = 'Organisasi';
 
     public static function form(Forms\Form $form): Forms\Form
     {
