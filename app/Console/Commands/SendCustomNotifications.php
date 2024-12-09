@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\CustomNotification;
 use Filament\Notifications\Notification;
-
+use Carbon\Carbon;
 class SendCustomNotifications extends Command
 {
     protected $signature = 'custom-notifications:send';
@@ -17,8 +17,10 @@ class SendCustomNotifications extends Command
         ->where('is_sent', false)
         ->get();
     
+        
     $this->info('Waktu sekarang: ' . now());
     $this->info('Jumlah notifikasi yang ditemukan: ' . $notifications->count());
+    
     
         if ($notifications->isEmpty()) {
             $this->info('Tidak ada notifikasi yang perlu dikirim.');
@@ -39,8 +41,11 @@ class SendCustomNotifications extends Command
                     ->success()
                     ->sendToDatabase($admin);
 
-                // Tandai sebagai terkirim
-                $notification->update(['is_sent' => true]);
+             // Tandai sebagai terkirim dan gunakan waktu lokal
+$notification->update([
+    'is_sent' => true,
+    'updated_at' => Carbon::now('Asia/Jakarta'), // Atur waktu lokal di sini
+]);
 
                 $this->info("Notifikasi '{$notification->title}' berhasil dikirim ke admin.");
             } else {
