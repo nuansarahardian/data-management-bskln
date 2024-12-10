@@ -51,4 +51,4 @@ Artisan::command('custom-notifications:send', function () {
 })->describe('Send custom notifications');
 
 // Jadwalkan tugas
-Schedule::command('custom-notifications:send')->everyMinute();
+Schedule::command('custom-notifications:send')->everySecond();
