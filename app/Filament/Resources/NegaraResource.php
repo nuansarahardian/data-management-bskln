@@ -7,6 +7,7 @@ use App\Filament\Resources\NegaraResource\RelationManagers;
 use App\Models\Negara;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -16,7 +17,8 @@ use Filament\Tables\Actions\ImportAction;
 use App\Filament\Exports\NegaraExporter;
 use Filament\Tables\Actions\ExportAction;
 use App\Filament\Imports\NegaraImporter;
-
+use App\Models\Kawasan;
+use App\Models\KawasanSatker;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -50,14 +52,18 @@ class NegaraResource extends Resource
                     ->label('Nama Negara (ENG)')
                     ->required()
                     ->maxLength(255),
-                TextInput::make('ID_Wil')
+                Select::make('ID_Wil')
                     ->label('ID Wilayah')
+                    ->options(Kawasan::pluck('ID_Wil', 'ID_Wil'))
                     ->required()
-                    ->maxLength(10),
-                TextInput::make('ID_Wil_Kemlu')
+                    ->searchable()
+                    ->placeholder(''),
+                Select::make('ID_WIl_Kemlu')
                     ->label('ID Wilayah Kemlu')
+                    ->options(KawasanSatker::pluck('ID_WIl_Kemlu', 'ID_WIl_Kemlu'))
                     ->required()
-                    ->maxLength(10),
+                    ->searchable()
+                    ->placeholder(''),
             ]);
     }
 
@@ -93,7 +99,7 @@ class NegaraResource extends Resource
                     ->label('ID Wilayah')
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('ID_Wil_Kemlu')
+                TextColumn::make('ID_WIl_Kemlu')
                     ->label('ID Wilayah Kemlu')
                     ->sortable()
                     ->searchable(),

@@ -22,6 +22,6 @@ class Negara extends Model
         'Negara_IDN',
         'Negara_ENG',
         'ID_Wil',
-        'ID_Wil_Kemlu',
+        'ID_WIl_Kemlu',
     ];
 }
